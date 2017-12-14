@@ -1,0 +1,529 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	position: relative;
+	background: url('../images/deathstar_background.jpg') no-repeat center center fixed;
+	background-size: cover;
+}
+
+h1, h2 {
+	font-family: 'Starjedi', sans-serif;
+	text-shadow: -2px 0 yellow, 0 2px yellow, 2px 0 yellow, 0 -2px yellow;
+	color: black;
+}
+
+p {
+	font-family: 'Starjedi', sans-serif;
+	text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+	color: black;
+}
+
+@font-face {
+	font-family: 'StarJedi';
+	src: url('../fonts/Starjedi.ttf') format('truetype');
+	font-weight: 400;
+}
+
+/*******************/
+/* welcome overlay */
+/*******************/
+
+
+.welcome_overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,0,0.95);
+	z-index: 12;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	transition: 1s ease-out 0s;
+}
+
+.welcome_overlay.hide {
+	visibility: hidden;
+	height: 0;
+	transition: 1s ease-out 0s;
+}
+
+.welcome_container {
+	width: 100%;
+	margin: 0 auto;
+	height: 100%;
+	background-image: url('../images/stars.jpg');
+}
+
+.welcome_title_container h1 {
+	font-size: 50px;
+	text-align: center;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.avatar_selection_title {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.avatar_selection_container {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.avatar_selection1, .avatar_selection2 {
+	width: 412px;
+}
+
+.avatar > input {
+	visibility: hidden;
+	position: absolute;
+}
+
+.avatar > input + img {
+	cursor: pointer;
+	border: 2px solid transparent;
+	height: 200px;
+	width: 200px;
+}
+
+.avatar_selection1 .avatar > input:checked + img {
+	box-shadow: 0 0 5px 5px red;
+}
+
+.avatar_selection2 .avatar > input:checked + img {
+	box-shadow: 0 0 5px 5px blue;
+}
+
+.welcome_overlay_footer {
+	margin: 0 auto;
+	margin-top: 40px;
+	display: flex;
+	width: 70%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.welcome_overlay_footer p {
+	font-size: 30px;
+}
+
+.welcome_overlay_footer .settings_score_container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 50%;
+}
+
+.welcome_overlay_footer .settings_score {
+	font-size: 60px;
+	color: black;
+	text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+	font-family: 'StarJedi', sans-serif;
+}
+
+.welcome_overlay_footer .fa-minus, .welcome_overlay_footer .fa-plus {
+	color: black;
+	text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+}
+
+.welcome_overlay_footer .start {
+	font-size: 30px;
+	color: black;
+	text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;;
+	font-family: 'StarJedi', sans-serif;
+	outline: none;
+	background: transparent;
+	border: none;
+	box-shadow: 0 0 3px 3px yellow;
+	padding: 2px 10px;
+}
+
+/************/
+/* End game */
+/************/
+
+.endgame_overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 0;
+	width: 100%;
+	background: url('../images/stars.jpg') no-repeat center center fixed;
+	background-size: cover;
+	z-index: 10;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	transition: all 1s ease-out 0s;
+}
+
+.endgame_overlay.show {
+	height: 100vh;
+	transition: all 1s ease-out 0s;
+}
+
+.outcome_container {
+	height: 100%;
+	width: 80%;
+	z-index: 11;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.outcome_container h2 {
+	font-size: 60px;
+	margin: 0;
+}
+
+.outcome_container .winner {
+	font-size: 30px;
+	margin-top: 0;
+}
+
+.outcome_container .smack_talk {
+	font-size: 30px;
+	margin-top: 30px;
+}
+
+.endgame_image_container img {
+	height: 250px;
+	width: 250px;
+}
+
+.outcome_container .restart {
+	font-family: 'Starjedi', sans-serif;
+	font-size: 30px;
+	margin-bottom: 20px;
+	color: black;
+	text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+	outline: none;
+	background: transparent;
+	border: none;
+	box-shadow: 0 0 3px 3px yellow;
+}
+
+/*********/
+/* Title */
+/*********/
+
+.title_container {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.title_container h1 {
+	font-size: 50px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.play_to_score {
+	font-family: 'Starjedi', sans-serif;
+	text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+	color: black;
+	font-size: 25px;
+}
+
+/* might not need */
+.change_settings {
+	
+}
+
+.change_settings button {
+	font-family: 'Starjedi', sans-serif;
+	text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+	color: black;
+	font-size: 25px;
+	outline: none;
+	background: transparent;
+	border: none;
+	box-shadow: 0 0 3px 3px yellow;
+}
+
+/********/
+/* Draw */
+/********/
+
+.draw_container {
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	margin-left: -310px;
+	margin-top: -100px;
+	visibility: hidden;
+}
+
+.draw_container h1 {
+	font-size: 200px;
+	opacity: 0;
+	margin: 0;
+	text-shadow: -4px 0 yellow, 0 4px yellow, 4px 0 yellow, 0 -4px yellow;
+}
+
+.draw_container.show {
+	visibility: visible;
+	z-index: 3;
+}
+
+.draw_container.show h1 {
+	transition: all 1s ease-out 0.5s;
+	opacity: 1;
+}
+
+/*************/
+/* Game Area */
+/*************/
+
+.game_area {
+	/*width: 100vw;*/
+	display: flex;
+	justify-content: space-around;
+	margin-top: 20px;
+}
+
+.player1_area, .player2_area {
+	width: 20%;
+}
+
+.player1_area h2, .player2_area h2 {
+	margin-top: 0;
+	text-align: center;
+}
+
+.score_display_1, .score_display_2 {
+	position: relative;
+	height: 125px;
+	display: flex;
+	width: 150px;
+	margin: 0 auto;
+	justify-content: space-evenly;
+}
+
+.score_display_1 #score1_svg,
+.score_display_1 #score2_svg,
+.score_display_1 #score3_svg,
+.score_display_1 #score4_svg {	
+	visibility: hidden;
+	box-shadow: 0px 0px 10px 10px red;
+	border-radius: 20px
+}
+
+.score_display_2 #score1_svg,
+.score_display_2 #score2_svg,
+.score_display_2 #score3_svg,
+.score_display_2 #score4_svg {
+	visibility: hidden;
+	box-shadow: 0px 0px 10px 10px rgba(12, 144, 244, 1);
+	border-radius: 20px
+}
+
+.score_display_1#score5_svg {
+	box-shadow: 0px 0px 10px 10px red;
+	position: absolute;
+	left: 43%;
+	visibility: visible;
+	transform: rotate(65deg);
+	top: -18%;	
+}
+
+.score_display_2#score5_svg {
+	box-shadow: 0px 0px 10px 10px rgba(12, 144, 244, 1);
+	position: absolute;
+	left: 43%;
+	visibility: visible;
+	transform: rotate(65deg);
+	top: -18%;	
+}
+
+.score_line1, .score_line2 {
+	stroke-width: 25px;
+	stroke: white;
+}
+
+.score_line1.vert, .score_line1.diag, .score_line2.vert, .score_line2.diag {
+	d: path('M 0 0 l 0 0');
+}
+
+.score_line1.vert.draw, .score_line2.vert.draw {
+	d: path('M 0 0 l 0 100');
+	transition: d .25s ease-out 0s;
+}
+
+.score_line1.diag.draw, .score_line2.diag.draw {
+	d: path('M 0 0 l 0 150');
+	transition: d .25s ease-out 0s;	
+}
+
+.player_image {
+	border: 1px solid white;
+	margin-top: 50px;
+	height: 150px;
+	width: 150px;
+	margin: 0 auto;
+	border-radius: 100px;
+}
+
+/*********/
+/* Board */
+/*********/
+
+.board {
+	display: flex;
+	justify-content: space-around;
+	padding: 5px;
+	border: 2px solid white;
+	height: 600px;
+	width: 600px;
+	position: relative;
+}
+
+/*************/
+/* Draw Line */
+/*************/
+
+#line0_svg {
+	position: absolute;
+	left: 15%;
+	/*visibility: hidden;*/
+	border-radius: 10px;
+}
+
+#line1_svg {
+	position: absolute;
+	visibility: hidden;
+	border-radius: 10px;
+}
+
+#line2_svg {
+	position: absolute;
+	right: 15%;
+	visibility: hidden;
+	border-radius: 10px;
+}
+
+#line3_svg {
+	position: absolute;
+	transform: rotate(-90deg);
+	visibility: hidden;
+	left: 48%;
+	top: -33%;
+	border-radius: 10px;
+}
+
+#line4_svg {
+	position: absolute;
+	visibility: hidden;
+	transform: rotate(-90deg);
+	left: 48%;
+	top: 0;
+	border-radius: 10px;
+}
+
+#line5_svg {
+	position: absolute;
+	visibility: hidden;
+	transform: rotate(-90deg);
+	left: 48%;
+	top: 30%;
+	border-radius: 10px;
+}
+
+#line6_svg {
+	position: absolute;
+	visibility: hidden;
+	transform: rotate(-45deg);
+	left: 49%;
+	top: -20%;
+	border-radius: 10px;
+}
+
+#line7_svg {
+	position: absolute;
+	visibility: hidden;
+	transform: rotate(45deg);
+	left: 47%;
+	top: -20%;
+	border-radius: 10px;
+}
+
+.line {
+	stroke-width: 40px;
+	stroke: white;
+}
+
+.line.vert, .line.horiz, .line.diag {
+	d: path('M 0 0 l 0 0');
+}
+
+.line.vert.draw, .line.horiz.draw {
+	d: path('M 0 0 l 0 600');
+	transition: d .25s ease-out 0s;
+}
+
+.line.diag.draw {
+	d: path('M 10 0 l 0 900');
+	transition: d .25s ease-out 0s;
+}
+
+/*********************/
+/* Column and square */
+/*********************/
+
+.column {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.square {
+	width: 185px;
+	height: 185px;
+	font-size: 100px;
+	text-align: center;
+	border: 2px solid white;
+	padding: 20px;
+}
+
+/**********/
+/* Footer */
+/**********/
+
+footer {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.waiting {
+	font-size: 40px;
+	text-align: center;
+	flex-shrink: 0;
+	margin: 0;
+}
+
+.sound_control {
+	width: 10%;
+}
+
+.sound_control i {
+	text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+	color: black;
+}
+
+
+

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tic Tac Toe</title>
+	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="welcome_overlay">
+		<div class="welcome_container">
+			<div class="welcome_title_container">
+				<h1>TicTacToe</h1>
+			</div>
+			<div class="avatar_selection_title">
+				<h2>Player 1 Avatar Selection</h2>
+				<h2>Player 2 Avatar Selection</h2>
+			</div>
+			<div class="avatar_selection_container">
+				<div class="avatar_selection1">
+					<label class="avatar" id="avatar1">
+						<input type="radio" name="avatar1" checked>
+						<img src="images/kylo_ren.jpg" alt="">
+					</label>
+					<label class="avatar" id="avatar2">
+						<input type="radio" name="avatar1">
+						<img src="images/darth_vader.jpg" alt="">
+					</label>
+					<label class="avatar" id="avatar3">
+						<input type="radio" name="avatar1">
+						<img src="images/darth_maul.jpg" alt="">
+					</label>
+					<label class="avatar" id="avatar4">
+						<input type="radio" name="avatar1">
+						<img src="images/darth_darth_binks.jpg" alt="">
+					</label>
+				</div>
+				<div class="avatar_selection2">
+					<label class="avatar" id="avatar1">
+						<input type="radio" name="avatar2" checked>
+						<img src="images/rey.jpg" alt="">
+					</label>
+					<label class="avatar" id="avatar2">
+						<input type="radio" name="avatar2">
+						<img src="images/luke.jpg" alt="">
+					</label>
+					<label class="avatar" id="avatar3">
+						<input type="radio" name="avatar2">
+						<img src="images/yoda.jpg" alt="">
+					</label>
+					<label class="avatar" id="avatar4">
+						<input type="radio" name="avatar2">
+						<img src="images/ewok.jpg" alt="">
+					</label>
+				</div>
+			</div>
+			<div class="welcome_overlay_footer">
+				<div class="settings_score_container">
+					<p>points to play</p>
+					<i class="fa fa-minus fa-4x" aria-hidden="true"></i>
+					<div class="settings_score">3</div>
+					<i class="fa fa-plus fa-4x" aria-hidden="true"></i>
+				</div>
+				<div class="sound_control">
+					<i class="fa fa-volume-up fa-4x" aria-hidden="true"></i>
+				</div>
+				<button class="start">start</button>
+			</div>
+		</div>
+	</div>
+	<div class="endgame_overlay">
+		<div class="outcome_container">
+			<h2></h2>
+			<p class="winner"></p>
+			<div class="endgame_image_container">
+				<img src="" alt="">
+			</div>
+			<p class="smack_talk"></p>
+			<button class="restart">new game</button>
+		</div>
+	</div>
+	<div class="title_container">
+		<div class="play_to_score">play to 3 points</div>
+		<h1>TicTacToe</h1>
+		<div class="change_settings">
+			<button>change settings</button>
+		</div>
+	</div>
+	<div class="draw_container">
+		<h1>DRAW</h1>
+	</div>
+	<div class="game_area">
+		<div class="player1_area">
+			<div>
+				<h2>Player 1 Score</h2>
+				<div class="score_display_1">
+					<svg id="score1_svg" height="80%" width="8%">	<path class="score_line1 vert"></path>
+					</svg>
+					<svg id="score2_svg" height="80%" width="8%">	<path class="score_line1 vert"></path>
+					</svg>
+					<svg id="score3_svg" height="80%" width="8%">	<path class="score_line1 vert"></path>
+					</svg>
+					<svg id="score4_svg" height="80%" width="8%">	<path class="score_line1 vert"></path>
+					</svg>	
+					<svg id="score5_svg" height="120%" width="10%">	<path class="score_line1 diag"></path>
+					</svg>	
+				</div>
+			</div>
+			<div class="player_image"></div>
+		</div>
+		<div class="board">
+			<svg id="line0_svg" height="100%" width="3%">
+				<path class="line vert"></path>
+			</svg>
+			<svg id="line1_svg" height="100%" width="3%">
+				<path class="line vert"></path>
+			</svg>
+	 		<svg id="line2_svg" height="100%" width="3%">
+	 			<path class="line vert"></path>
+	 		</svg>
+			<svg id="line3_svg" height="100%" width="3%">
+				<path class="line horiz"></path>
+			</svg>
+	 		<svg id="line4_svg" height="100%" width="3%">
+	 			<path class="line horiz"></path>
+	 		</svg>
+			<svg id="line5_svg" height="100%" width="3%">
+				<path class="line horiz"></path>
+			</svg>
+			<svg id="line6_svg" height="140%" width="3%">
+				<path class="line diag"></path>
+			</svg>
+			<svg id="line7_svg" height="140%" width="3%">
+				<path class="line diag"></path>
+			</svg> 
+			<div class="column">
+				<div id="square0" class="square"></div>
+				<div id="square1" class="square"></div>
+				<div id="square2" class="square"></div>
+			</div>
+			<div class="column">
+				<div id="square3" class="square"></div>
+				<div id="square4" class="square"></div>
+				<div id="square5" class="square"></div>
+			</div>
+			<div class="column">
+				<div id="square6" class="square"></div>
+				<div id="square7" class="square"></div>
+				<div id="square8" class="square"></div>
+			</div>
+		</div>
+		<div class="player2_area">
+			<h2>Player 2 Score</h2>
+			<div class="score_display_2">
+				<svg id="score1_svg" height="80%" width="8%">	<path class="score_line2 vert"></path>
+				</svg>
+				<svg id="score2_svg" height="80%" width="8%">	<path class="score_line2 vert"></path>
+				</svg>
+				<svg id="score3_svg" height="80%" width="8%">	<path class="score_line2 vert"></path>
+				</svg>
+				<svg id="score4_svg" height="80%" width="8%">	<path class="score_line2 vert"></path>
+				</svg>	
+				<svg id="score5_svg" height="120%" width="10%">	<path class="score_line2 diag"></path>
+				</svg>	
+			</div>
+			<div class="player_image"></div>
+		</div>
+	</div>
+	<footer>
+		<div class="copyright">
+			<p>&copy; created by JWong</p>
+		</div>
+		<h2 class="waiting">Player 1 starts first</h2>
+		<div class="sound_control">
+			<i class="fa fa-volume-up fa-4x" aria-hidden="true"></i>
+		</div>
+	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.2/Pizzicato.min.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
