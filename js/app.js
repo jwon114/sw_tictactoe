@@ -14,8 +14,8 @@ var volume = true;
 
 // query selectors
 var squareArray = document.querySelectorAll('.square');
-var lineSvg = document.querySelectorAll('.board svg');
-var linePath = document.querySelectorAll('.board svg path');
+var lineSvg = document.querySelectorAll('.board .col1 svg');
+var linePath = document.querySelectorAll('.board .col1 svg path');
 var endgameOverlay = document.querySelector('.endgame_overlay');
 var outcome = document.querySelector('.outcome_container');
 var restartButton = document.querySelector('.restart');
@@ -397,16 +397,13 @@ function objectIsEmpty(obj) {
 function showStrikethrough(winner) {
 	console.log('strikeId', winner.strikeId);
 	if (winner.player === 'Player 1') {
-		setTimeout(function() {
-			lineSvg[winner.strikeId].style.boxShadow = '0px 0px 10px 10px red';
-		}, 250)
+		lineSvg[winner.strikeId].style.boxShadow = '0px 0px 10px 10px red';
 	} else if (winner.player === 'Player 2') {
-		setTimeout(function() {
-			lineSvg[winner.strikeId].style.boxShadow = '0px 0px 10px 10px rgba(12, 144, 244, 1)';
-		}, 250)
+		lineSvg[winner.strikeId].style.boxShadow = '0px 0px 10px 10px rgba(12, 144, 244, 1)';
 	}
-	lineSvg[winner.strikeId].style.boxShadow = 'none'
+	// lineSvg[winner.strikeId].style.boxShadow = 'none'
 	lineSvg[winner.strikeId].style.visibility = 'visible';
+	lineSvg[winner.strikeId].classList.add('draw');
 	linePath[winner.strikeId].classList.add('draw');
 }
 
@@ -429,6 +426,7 @@ function restartGame(end) {
 	// remove strike through lines
 	lineSvg.forEach(function(svg) {
 		svg.style.visibility = 'hidden';
+		svg.classList.remove('draw');
 	});
 	linePath.forEach(function(path) {
 		path.classList.remove('draw');

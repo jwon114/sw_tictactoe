@@ -395,67 +395,148 @@ p {
 
 #line0_svg {
 	position: absolute;
-	left: 15%;
-	/*visibility: hidden;*/
+	top: 0;
+	left: 45%;
+	height: 0;
+	visibility: hidden;
 	border-radius: 10px;
+}
+
+#line0_svg.draw {
+	border-radius: 10px;
+	position: absolute;
+	height: 100%;
+	transition: height .25s ease-out 0s;
 }
 
 #line1_svg {
 	position: absolute;
 	visibility: hidden;
+	height: 0;
+	top: 0;
+	left: 145%;
 	border-radius: 10px;
 }
 
-#line2_svg {
+#line1_svg.draw {
 	position: absolute;
-	right: 15%;
 	visibility: hidden;
 	border-radius: 10px;
+	height: 100%;
+	transition: height .25s ease-out 0s;
+}
+
+
+#line2_svg {
+	position: absolute;
+	left: 250%;
+	top: 0;
+	height: 0;
+	visibility: hidden;
+	border-radius: 10px;
+}
+
+#line2_svg.draw {
+	position: absolute;
+	visibility: hidden;
+	border-radius: 10px;
+	height: 100%;
+	transition: height .25s ease-out 0s;
 }
 
 #line3_svg {
 	position: absolute;
 	transform: rotate(-90deg);
+	transform-origin: top;
 	visibility: hidden;
-	left: 48%;
-	top: -33%;
+	left: -5%;
+	top: 15%;
+	height: 0;
 	border-radius: 10px;
+}
+
+#line3_svg.draw {
+	position: absolute;
+	visibility: hidden;
+	border-radius: 10px;
+	height: 100%;
+	transition: height .25s ease-out 0s;
 }
 
 #line4_svg {
 	position: absolute;
 	visibility: hidden;
 	transform: rotate(-90deg);
-	left: 48%;
-	top: 0;
+	transform-origin: top;
+	left: -5%;
+	top: 50%;
+	height: 0;
 	border-radius: 10px;
+}
+
+#line4_svg.draw {
+	position: absolute;
+	visibility: hidden;
+	border-radius: 10px;
+	height: 100%;
+	transition: height .25s ease-out 0s;
 }
 
 #line5_svg {
 	position: absolute;
 	visibility: hidden;
 	transform: rotate(-90deg);
-	left: 48%;
-	top: 30%;
+	transform-origin: top;
+	left: -5%;
+	top: 85%;
+	height: 0;
 	border-radius: 10px;
+}
+
+#line5_svg.draw {
+	position: absolute;
+	visibility: hidden;
+	border-radius: 10px;
+	height: 100%;
+	transition: height .25s ease-out 0s;
 }
 
 #line6_svg {
 	position: absolute;
 	visibility: hidden;
 	transform: rotate(-45deg);
-	left: 49%;
-	top: -20%;
+	transform-origin: top;
+	left: -5%;
+	top: 0%;
+	height: 0;
 	border-radius: 10px;
+}
+
+#line6_svg.draw {
+	position: absolute;
+	visibility: hidden;
+	border-radius: 10px;
+	height: 140%;
+	transition: height .25s ease-out 0s;
 }
 
 #line7_svg {
 	position: absolute;
 	visibility: hidden;
 	transform: rotate(45deg);
-	left: 47%;
-	top: -20%;
+	transform-origin: top;
+	left: 305%;
+	top: 0%;
+	height: 0;
 	border-radius: 10px;
+}
+
+#line7_svg.draw {
+	position: absolute;
+	visibility: hidden;
+	border-radius: 10px;
+	height: 140%;
+	transition: height .25s ease-out 0s;
 }
 
 .line {
@@ -485,6 +566,10 @@ p {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
+}
+
+.column.col1 {
+	position: relative;
 }
 
 .square {
