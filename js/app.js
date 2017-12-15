@@ -453,8 +453,8 @@ function restartGame(end) {
 function drawScoreLines(scoreId, player) {
 	var scoreSvg = player.querySelector('#score' + scoreId + '_svg');
 	console.log('scoreSvg', scoreSvg);
-	console.log('here');
 	scoreSvg.style.visibility = 'visible';
+	scoreSvg.classList.add('draw');
 
 	var scorePath = scoreSvg.querySelector('path');
 	scorePath.classList.add('draw');
@@ -464,6 +464,7 @@ function resetScoreSvgs() {
 	var player1Svgs = player1Area.querySelectorAll('svg');
 	player1Svgs.forEach(function(svg) {
 		svg.style.visibility = 'hidden';
+		svg.classList.remove('draw');
 		var path = svg.querySelector('path');
 		path.classList.remove('draw');
 	})
@@ -471,6 +472,7 @@ function resetScoreSvgs() {
 	var player2Svgs = player2Area.querySelectorAll('svg');
 	player2Svgs.forEach(function(svg) {
 		svg.style.visibility = 'hidden';
+		svg.classList.remove('draw');
 		var path = svg.querySelector('path');
 		path.classList.remove('draw');
 	})

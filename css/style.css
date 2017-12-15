@@ -317,7 +317,16 @@ p {
 .score_display_1 #score4_svg {	
 	visibility: hidden;
 	box-shadow: 0px 0px 10px 10px red;
-	border-radius: 20px
+	border-radius: 20px;
+	height: 0;
+}
+
+.score_display_1 #score1_svg.draw,
+.score_display_1 #score2_svg.draw,
+.score_display_1 #score3_svg.draw,
+.score_display_1 #score4_svg.draw {	
+	height: 80%;
+	transition: height .25s ease-out 0s;
 }
 
 .score_display_2 #score1_svg,
@@ -326,25 +335,49 @@ p {
 .score_display_2 #score4_svg {
 	visibility: hidden;
 	box-shadow: 0px 0px 10px 10px rgba(12, 144, 244, 1);
-	border-radius: 20px
+	border-radius: 20px;
+	height: 0;
 }
 
-.score_display_1#score5_svg {
+.score_display_2 #score1_svg.draw,
+.score_display_2 #score2_svg.draw,
+.score_display_2 #score3_svg.draw,
+.score_display_2 #score4_svg.draw {	
+	height: 80%;
+	transition: height .25s ease-out 0s;
+}
+
+.score_display_1 #score5_svg {
 	box-shadow: 0px 0px 10px 10px red;
 	position: absolute;
-	left: 43%;
-	visibility: visible;
+	border-radius: 20px;
+	left: 90%;
+	visibility: hidden;
 	transform: rotate(65deg);
-	top: -18%;	
+	transform-origin: top;
+	top: 10%;
+	height: 0;	
 }
 
-.score_display_2#score5_svg {
+.score_display_1 #score5_svg.draw {
+	height: 120%;
+	transition: height .25s ease-out 0s;
+}
+
+.score_display_2 #score5_svg {
 	box-shadow: 0px 0px 10px 10px rgba(12, 144, 244, 1);
 	position: absolute;
-	left: 43%;
-	visibility: visible;
+	border-radius: 20px;
+	left: 90%;
+	visibility: hidden;
 	transform: rotate(65deg);
-	top: -18%;	
+	transform-origin: top;
+	top: 10%;	
+}
+
+.score_display_1 #score5_svg.draw {
+	height: 120%;
+	transition: height .25s ease-out 0s;
 }
 
 .score_line1, .score_line2 {
@@ -362,7 +395,7 @@ p {
 }
 
 .score_line1.diag.draw, .score_line2.diag.draw {
-	d: path('M 0 0 l 0 150');
+	d: path('M 10 0 l 0 200');
 	transition: d .25s ease-out 0s;	
 }
 
