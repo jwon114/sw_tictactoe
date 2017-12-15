@@ -57,8 +57,6 @@ var wilhelmScream = new Pizzicato.Sound('./audio/WilhelmScream.mp3');
 
 var volumeControlArr = [laserBlast, themeSong, r2d2, darthVaderAudio, cantinaBand, lightsaberAudio, imperial, rebelFanfare, wilhelmScream];
 
-console.log(squareArray);
-
 // event listeners
 squareArray.forEach(function(square) {
 	square.addEventListener('click', manageSquareClicks)
@@ -88,8 +86,6 @@ function initialiseGame() {
 	} else if (playerTurn === 'O') {
 		waitingText.textContent = 'Player 2 Starts';
 	}
-	
-	console.log(playerTurn);
 }
 
 function toggleVolume() {
@@ -263,9 +259,6 @@ function manageSquareClicks(event) {
 		} else {
 			startWaitingTimer();
 		}
-
-		console.log(board);
-		console.log(winner);
 	}
 }
 
@@ -395,7 +388,6 @@ function objectIsEmpty(obj) {
 }
 
 function showStrikethrough(winner) {
-	console.log('strikeId', winner.strikeId);
 	if (winner.player === 'Player 1') {
 		lineSvg[winner.strikeId].style.boxShadow = '0px 0px 10px 10px red';
 	} else if (winner.player === 'Player 2') {
@@ -452,7 +444,6 @@ function restartGame(end) {
 
 function drawScoreLines(scoreId, player) {
 	var scoreSvg = player.querySelector('#score' + scoreId + '_svg');
-	console.log('scoreSvg', scoreSvg);
 	scoreSvg.style.visibility = 'visible';
 	scoreSvg.classList.add('draw');
 
