@@ -52,7 +52,7 @@ var cantinaBand = new Pizzicato.Sound({
 		});
 var lightsaberAudio = new Pizzicato.Sound('./audio/lightsaber_on.mp3');
 var imperial = new Pizzicato.Sound('./audio/imperial.mp3');
-var rebelFanfare = new Pizzicato.Sound('./audio/Rebel_fanfare.ogx');
+var rebelFanfare = new Pizzicato.Sound('./audio/Rebel_fanfare.mp3');
 var wilhelmScream = new Pizzicato.Sound('./audio/WilhelmScream.mp3');
 
 var volumeControlArr = [laserBlast, themeSong, r2d2, darthVaderAudio, cantinaBand, lightsaberAudio, imperial, rebelFanfare, wilhelmScream];
