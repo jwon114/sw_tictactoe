@@ -54,6 +54,7 @@ var lightsaberAudio = new Pizzicato.Sound('./audio/lightsaber_on.mp3');
 var imperial = new Pizzicato.Sound('./audio/imperial.mp3');
 var rebelFanfare = new Pizzicato.Sound('./audio/Rebel_Fanfare.ogx');
 var wilhelmScream = new Pizzicato.Sound('./audio/WilhelmScream.mp3');
+var ewok = new Pizzicato.Sound('./audio/EWOK.mp3');
 
 var volumeControlArr = [laserBlast, themeSong, r2d2, darthVaderAudio, cantinaBand, lightsaberAudio, imperial, rebelFanfare, wilhelmScream];
 
@@ -369,7 +370,8 @@ function gameOver(winner) {
 				break;
 			case 'avatar4': // ewok
 				smackTalk = 'yub nub';
-				rebelFanfare.play();
+				// rebelFanfare.play();
+				ewok.play();
 				break;
 			default:
 				smackTalk = '';
