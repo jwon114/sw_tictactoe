@@ -257,7 +257,7 @@ p {
 /********/
 
 .draw_container {
-	position: fixed;
+	position: absolute;
 	top: 40%;
 	left: 50%;
 	margin-left: -310px;
