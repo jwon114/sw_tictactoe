@@ -53,8 +53,9 @@ var cantinaBand = new Pizzicato.Sound({
 var lightsaberAudio = new Pizzicato.Sound('../audio/lightsaber_on.mp3');
 var imperial = new Pizzicato.Sound('../audio/imperial.mp3');
 var rebelFanfare = new Pizzicato.Sound('../audio/Rebel_fanfare.ogx');
+var wilhelmScream = new Pizzicato.Sound('../audio/WilhelmScream.mp3');
 
-var volumeControlArr = [laserBlast, themeSong, r2d2, darthVaderAudio, cantinaBand, lightsaberAudio, imperial, rebelFanfare];
+var volumeControlArr = [laserBlast, themeSong, r2d2, darthVaderAudio, cantinaBand, lightsaberAudio, imperial, rebelFanfare, wilhelmScream];
 
 console.log(squareArray);
 
@@ -70,12 +71,11 @@ plusScore.addEventListener('click', increasePointsSetting);
 volumeControl.forEach(function(volume) {
 	volume.addEventListener('click', toggleVolume);
 });
-// stop cantine audio
+// stop cantine audio when clicking anywhere but copyright div
 window.addEventListener('click', stopCantina);
 
 
-// initialise game
-// initialiseGame();
+// initialise game when themeSong loads
 
 function initialiseGame() {
 	// play the theme song on startup
@@ -176,11 +176,11 @@ function setGameSettings(event) {
 function openSettingsMenu() {
 	welcomeOverlay.classList.remove('hide');
 
-	// play the theme song when settings opened
-	themeSong.play();
-
 	// restart game variables and delete the scores
 	restartGame(true);
+
+	// play the theme song when settings opened
+	themeSong.play();
 }
 
 function placeAvatarsOnMain() {
@@ -495,6 +495,7 @@ function startWaitingTimer() {
 function showDrawMessage() {
 	var drawMessage = document.querySelector('.draw_container');
 	drawMessage.classList.add('show');
+	wilhelmScream.play();
 
 	setTimeout(function() {
 		restartGame();
