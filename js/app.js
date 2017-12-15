@@ -35,25 +35,25 @@ var volumeControl = document.querySelectorAll('.sound_control i');
 var copyrightSelect = document.querySelector('footer .copyright p');
 
 // web audio with Pizzicato plugin
-var laserBlast = new Pizzicato.Sound('../audio/blaster-firing.mp3');
+var laserBlast = new Pizzicato.Sound('/audio/blaster-firing.mp3');
 var themeSong = new Pizzicato.Sound({
 		source: 'file', 
-		options: { path: '../audio/star-wars-theme-song.mp3', loop: true }
+		options: { path: '/audio/star-wars-theme-song.mp3', loop: true }
 		}, function() {
 			initialiseGame();
 		});
-var r2d2 = new Pizzicato.Sound('../audio/R2D2-yeah.mp3');
-var darthVaderAudio = new Pizzicato.Sound('../audio/swvader02.mp3');
+var r2d2 = new Pizzicato.Sound('/audio/R2D2-yeah.mp3');
+var darthVaderAudio = new Pizzicato.Sound('/audio/swvader02.mp3');
 var cantinaBand = new Pizzicato.Sound({
 		source: 'file',
-		options: { path: '../audio/star-wars-cantina-song.mp3', loop: true }
+		options: { path: '/audio/star-wars-cantina-song.mp3', loop: true }
 		}, function() {
 			copyrightSelect.addEventListener('click', playCantina);
 		});
-var lightsaberAudio = new Pizzicato.Sound('../audio/lightsaber_on.mp3');
-var imperial = new Pizzicato.Sound('../audio/imperial.mp3');
-var rebelFanfare = new Pizzicato.Sound('../audio/Rebel_fanfare.ogx');
-var wilhelmScream = new Pizzicato.Sound('../audio/WilhelmScream.mp3');
+var lightsaberAudio = new Pizzicato.Sound('/audio/lightsaber_on.mp3');
+var imperial = new Pizzicato.Sound('/audio/imperial.mp3');
+var rebelFanfare = new Pizzicato.Sound('/audio/Rebel_fanfare.ogx');
+var wilhelmScream = new Pizzicato.Sound('/audio/WilhelmScream.mp3');
 
 var volumeControlArr = [laserBlast, themeSong, r2d2, darthVaderAudio, cantinaBand, lightsaberAudio, imperial, rebelFanfare, wilhelmScream];
 
