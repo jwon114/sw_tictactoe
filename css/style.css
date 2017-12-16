@@ -38,11 +38,8 @@ p {
 	left: 0;
 	height: 100%;
 	width: 100%;
-	background: rgba(0,0,0,0.95);
+	background: url('../images/stars.jpg');
 	z-index: 12;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	overflow: hidden;
 	transition: 1s ease-out 0s;
 }
@@ -51,13 +48,6 @@ p {
 	visibility: hidden;
 	height: 0;
 	transition: 1s ease-out 0s;
-}
-
-.welcome_container {
-	width: 100%;
-	margin: 0 auto;
-	height: 100%;
-	background-image: url('../images/stars.jpg');
 }
 
 .welcome_title_container h1 {

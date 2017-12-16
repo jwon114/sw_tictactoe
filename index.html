@@ -9,64 +9,62 @@
 </head>
 <body>
 	<div class="welcome_overlay">
-		<div class="welcome_container">
-			<div class="welcome_title_container">
-				<h1>TicTacToe</h1>
+		<div class="welcome_title_container">
+			<h1>TicTacToe</h1>
+		</div>
+		<div class="avatar_selection_title">
+			<h2>Player 1 Avatar Selection</h2>
+			<h2>Player 2 Avatar Selection</h2>
+		</div>
+		<div class="avatar_selection_container">
+			<div class="avatar_selection1">
+				<label class="avatar" id="avatar1">
+					<input type="radio" name="avatar1" checked>
+					<img src="images/kylo_ren.jpg" alt="">
+				</label>
+				<label class="avatar" id="avatar2">
+					<input type="radio" name="avatar1">
+					<img src="images/darth_vader.jpg" alt="">
+				</label>
+				<label class="avatar" id="avatar3">
+					<input type="radio" name="avatar1">
+					<img src="images/darth_maul.jpg" alt="">
+				</label>
+				<label class="avatar" id="avatar4">
+					<input type="radio" name="avatar1">
+					<img src="images/darth_darth_binks.jpg" alt="">
+				</label>
 			</div>
-			<div class="avatar_selection_title">
-				<h2>Player 1 Avatar Selection</h2>
-				<h2>Player 2 Avatar Selection</h2>
+			<div class="avatar_selection2">
+				<label class="avatar" id="avatar1">
+					<input type="radio" name="avatar2" checked>
+					<img src="images/rey.jpg" alt="">
+				</label>
+				<label class="avatar" id="avatar2">
+					<input type="radio" name="avatar2">
+					<img src="images/luke.jpg" alt="">
+				</label>
+				<label class="avatar" id="avatar3">
+					<input type="radio" name="avatar2">
+					<img src="images/yoda.jpg" alt="">
+				</label>
+				<label class="avatar" id="avatar4">
+					<input type="radio" name="avatar2">
+					<img src="images/ewok.jpg" alt="">
+				</label>
 			</div>
-			<div class="avatar_selection_container">
-				<div class="avatar_selection1">
-					<label class="avatar" id="avatar1">
-						<input type="radio" name="avatar1" checked>
-						<img src="images/kylo_ren.jpg" alt="">
-					</label>
-					<label class="avatar" id="avatar2">
-						<input type="radio" name="avatar1">
-						<img src="images/darth_vader.jpg" alt="">
-					</label>
-					<label class="avatar" id="avatar3">
-						<input type="radio" name="avatar1">
-						<img src="images/darth_maul.jpg" alt="">
-					</label>
-					<label class="avatar" id="avatar4">
-						<input type="radio" name="avatar1">
-						<img src="images/darth_darth_binks.jpg" alt="">
-					</label>
-				</div>
-				<div class="avatar_selection2">
-					<label class="avatar" id="avatar1">
-						<input type="radio" name="avatar2" checked>
-						<img src="images/rey.jpg" alt="">
-					</label>
-					<label class="avatar" id="avatar2">
-						<input type="radio" name="avatar2">
-						<img src="images/luke.jpg" alt="">
-					</label>
-					<label class="avatar" id="avatar3">
-						<input type="radio" name="avatar2">
-						<img src="images/yoda.jpg" alt="">
-					</label>
-					<label class="avatar" id="avatar4">
-						<input type="radio" name="avatar2">
-						<img src="images/ewok.jpg" alt="">
-					</label>
-				</div>
+		</div>
+		<div class="welcome_overlay_footer">
+			<div class="settings_score_container">
+				<p>points to play</p>
+				<i class="fa fa-minus fa-4x" aria-hidden="true"></i>
+				<div class="settings_score">3</div>
+				<i class="fa fa-plus fa-4x" aria-hidden="true"></i>
 			</div>
-			<div class="welcome_overlay_footer">
-				<div class="settings_score_container">
-					<p>points to play</p>
-					<i class="fa fa-minus fa-4x" aria-hidden="true"></i>
-					<div class="settings_score">3</div>
-					<i class="fa fa-plus fa-4x" aria-hidden="true"></i>
-				</div>
-				<div class="sound_control">
-					<i class="fa fa-volume-up fa-4x" aria-hidden="true"></i>
-				</div>
-				<button class="start">start</button>
+			<div class="sound_control">
+				<i class="fa fa-volume-up fa-4x" aria-hidden="true"></i>
 			</div>
+			<button class="start">start</button>
 		</div>
 	</div>
 	<div class="endgame_overlay">
