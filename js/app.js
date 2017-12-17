@@ -408,6 +408,7 @@ function gameOver(winner) {
 			default:
 				smackTalk = '';
 		}
+		outcome.querySelector('img').src = '';
 		outcome.querySelector('img').src = './' + player1Details.avatarImgUrl;
 	} else if (winner === 'Player 2') {
 		switch(player2Details.avatarId) {
@@ -431,6 +432,7 @@ function gameOver(winner) {
 			default:
 				smackTalk = '';
 		}
+		outcome.querySelector('img').src = '';
 		outcome.querySelector('img').src = './' + player2Details.avatarImgUrl;
 	}
 	outcome.querySelector('.smack_talk').textContent = smackTalk;
