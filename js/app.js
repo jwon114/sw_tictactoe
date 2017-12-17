@@ -6,11 +6,9 @@ var player1Score = 0;
 var player2Score = 0;
 var waitTimer;
 var gameWon = false; // maintains winning state
-var player1AvatarImgUrl;
-var player2AvatarImgUrl;
-var player1AvatarId;
-var player2AvatarId;
 var volume = true;
+var player1Details = {};
+var player2Details = {};
 
 // query selectors
 var squareArray = document.querySelectorAll('.square');
@@ -73,6 +71,11 @@ volumeControl.forEach(function(volume) {
 // stop cantine audio when clicking anywhere but copyright div
 window.addEventListener('click', stopCantina);
 
+// fix height if browser is greater than body
+var body = document.querySelector('body');
+if (window.innerHeight > body.offsetHeight) {
+	body.style.height = '100vh';
+}
 
 // initialise game when themeSong loads
 
@@ -139,12 +142,14 @@ function setGamePoint() {
 }
 
 function setGameSettings(event) {
+
 	player1AvatarSelection.forEach(function(avatar) {
 		if (avatar.querySelector('input').checked) {
 			var player1AvatarImgUrlSelect = avatar.querySelector('img');
 			var srcIndex1 = player1AvatarImgUrlSelect.src.indexOf('/images');
-			player1AvatarImgUrl = player1AvatarImgUrlSelect.src.slice(srcIndex1);
-			player1AvatarId = avatar.id;
+			player1Details.avatarImgUrl = player1AvatarImgUrlSelect.src.slice(srcIndex1);
+			player1Details.avatarId = avatar.id;
+			player1Details.avatarName = determinePlayerAvatarName(avatar.id, 'Player1');
 		}
 	});
 
@@ -152,8 +157,9 @@ function setGameSettings(event) {
 		if (avatar.querySelector('input').checked) {
 			var player2AvatarImgUrlSelect = avatar.querySelector('img');
 			var srcIndex2 = player2AvatarImgUrlSelect.src.indexOf('/images');
-			player2AvatarImgUrl = player2AvatarImgUrlSelect.src.slice(srcIndex2);
-			player2AvatarId = avatar.id;
+			player2Details.avatarImgUrl = player2AvatarImgUrlSelect.src.slice(srcIndex2);
+			player2Details.avatarId = avatar.id;
+			player2Details.avatarName = determinePlayerAvatarName(avatar.id, 'Player2');
 		}
 	});
 
@@ -165,9 +171,77 @@ function setGameSettings(event) {
 	r2d2.play();
 
 	// place the player avatars on the main screen
-	placeAvatarsOnMain();
+	placeAvatarsOnMain(player1Details, player2Details);
 
 	welcomeOverlay.classList.add('hide');
+}
+
+function determinePlayerAvatarName(playerAvatarId, player) {
+	var avatarName;
+
+	if (player === 'Player1') {
+		switch(playerAvatarId) {
+			case 'avatar1':
+				avatarName = 'kylo ren';
+				break;
+			case 'avatar2':
+				avatarName = 'darth vader';
+				break;
+			case 'avatar3':
+				avatarName = 'darth maul';
+				break;
+			case 'avatar4':
+				avatarName = 'darth darth binks';
+				break;
+			default:
+				avatarName = '';
+		}
+	}
+
+	if (player === 'Player2') {
+		switch(playerAvatarId) {
+			case 'avatar1':
+				avatarName = 'rey';
+				break;
+			case 'avatar2':
+				avatarName = 'luke skywalker';
+				break;
+			case 'avatar3':
+				avatarName = 'yoda';
+				break;
+			case 'avatar4':
+				avatarName = 'ewok';
+				break;
+			default:
+				avatarName = '';
+		}	
+	}
+
+	return avatarName;
+}
+
+function placeAvatarsOnMain(player1Details, player2Details) {
+	// set player avatar on main screen
+	var player1Avatar = document.querySelector('.player1_area .player_image');
+	var player2Avatar = document.querySelector('.player2_area .player_image');
+	var player1AvatarName = document.querySelector('.player1_area .player_avatar_name');
+	var player2AvatarName = document.querySelector('.player2_area .player_avatar_name');
+
+	player1Avatar.style.background = "url('." + player1Details.avatarImgUrl + "') no-repeat center center";
+	player1Avatar.style.backgroundSize = 'cover';
+	
+	player2Avatar.style.background = "url('." + player2Details.avatarImgUrl + "') no-repeat center center";
+	player2Avatar.style.backgroundSize = 'cover';
+
+	player1AvatarName.textContent = player1Details.avatarName;
+	player2AvatarName.textContent = player2Details.avatarName;
+}
+
+function whoStarts() {
+	var random = Math.random();
+	var who;
+	random >= 0.5 ? who = 'X' : who = 'O';
+	return who;
 }
 
 function openSettingsMenu() {
@@ -180,35 +254,16 @@ function openSettingsMenu() {
 	themeSong.play();
 }
 
-function placeAvatarsOnMain() {
-	// set player avatar on main screen
-	var player1Avatar = document.querySelector('.player1_area .player_image');
-	var player2Avatar = document.querySelector('.player2_area .player_image');
-
-	player1Avatar.style.background = "url('." + player1AvatarImgUrl + "') no-repeat center center";
-	player1Avatar.style.backgroundSize = 'cover';
-	
-	player2Avatar.style.background = "url('." + player2AvatarImgUrl + "') no-repeat center center";
-	player2Avatar.style.backgroundSize = 'cover';
-}
-
-function whoStarts() {
-	var random = Math.random();
-	var who;
-	random >= 0.5 ? who = 'X' : who = 'O';
-	return who;
-}
-
 function placeAvatarOnBoard(event) {
 
 	var imageStyle = event.target.style
 
 	if (playerTurn === 'X') {
-		imageStyle.background = "url('." + player1AvatarImgUrl + "') no-repeat center center"
+		imageStyle.background = "url('." + player1Details.avatarImgUrl + "') no-repeat center center"
 		imageStyle.backgroundSize = 'cover';
 
 	} else if (playerTurn === 'O') {
-		imageStyle.background = "url('." + player2AvatarImgUrl + "') no-repeat center center"
+		imageStyle.background = "url('." + player2Details.avatarImgUrl + "') no-repeat center center"
 		imageStyle.backgroundSize = 'cover';
 	}
 }
@@ -331,7 +386,7 @@ function gameOver(winner) {
 	outcome.querySelector('.winner').textContent =  winner + ' wins';
 	var smackTalk = '';
 	if (winner === 'Player 1') {
-		switch(player1AvatarId) {
+		switch(player1Details.avatarId) {
 			case 'avatar1': // kylo ren
 				smackTalk = 'you need a teacher! i can show you the ways of the force!';
 				imperial.play();
@@ -353,9 +408,9 @@ function gameOver(winner) {
 			default:
 				smackTalk = '';
 		}
-		outcome.querySelector('img').src = './' + player1AvatarImgUrl;
+		outcome.querySelector('img').src = './' + player1Details.avatarImgUrl;
 	} else if (winner === 'Player 2') {
-		switch(player2AvatarId) {
+		switch(player2Details.avatarId) {
 			case 'avatar1': // rey
 				smackTalk = 'you\'re afraid... that you will never be as strong as darth vader';
 				rebelFanfare.play();
@@ -376,7 +431,7 @@ function gameOver(winner) {
 			default:
 				smackTalk = '';
 		}
-		outcome.querySelector('img').src = './' + player2AvatarImgUrl;
+		outcome.querySelector('img').src = './' + player2Details.avatarImgUrl;
 	}
 	outcome.querySelector('.smack_talk').textContent = smackTalk;
 }
