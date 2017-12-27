@@ -455,7 +455,9 @@ function showStrikethrough(winner) {
 	// lineSvg[winner.strikeId].style.boxShadow = 'none'
 	lineSvg[winner.strikeId].style.visibility = 'visible';
 	lineSvg[winner.strikeId].classList.add('draw');
-	linePath[winner.strikeId].classList.add('draw');
+	// linePath[winner.strikeId].classList.add('draw');
+	var animatePath = linePath[winner.strikeId].querySelector('animate')
+	animatePath.beginElement();
 }
 
 function restartGame(end) {
@@ -477,6 +479,7 @@ function restartGame(end) {
 	// remove strike through lines
 	lineSvg.forEach(function(svg) {
 		svg.style.visibility = 'hidden';
+		// svg.style.boxShadow = 'none';
 		svg.classList.remove('draw');
 	});
 	linePath.forEach(function(path) {
@@ -506,8 +509,9 @@ function drawScoreLines(scoreId, player) {
 	scoreSvg.style.visibility = 'visible';
 	scoreSvg.classList.add('draw');
 
-	var scorePath = scoreSvg.querySelector('path');
-	scorePath.classList.add('draw');
+	var scorePath = scoreSvg.querySelector('animate');
+	scorePath.beginElement();
+	// scorePath.classList.add('draw');
 }
 
 function resetScoreSvgs() {
@@ -515,16 +519,16 @@ function resetScoreSvgs() {
 	player1Svgs.forEach(function(svg) {
 		svg.style.visibility = 'hidden';
 		svg.classList.remove('draw');
-		var path = svg.querySelector('path');
-		path.classList.remove('draw');
+		// var path = svg.querySelector('path');
+		// path.classList.remove('draw');
 	})
 
 	var player2Svgs = player2Area.querySelectorAll('svg');
 	player2Svgs.forEach(function(svg) {
 		svg.style.visibility = 'hidden';
 		svg.classList.remove('draw');
-		var path = svg.querySelector('path');
-		path.classList.remove('draw');
+		// var path = svg.querySelector('path');
+		// path.classList.remove('draw');
 	})
 }
 

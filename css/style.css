@@ -228,11 +228,6 @@ p {
 	font-size: 25px;
 }
 
-/* might not need */
-.change_settings {
-	
-}
-
 .change_settings button {
 	font-family: 'Starjedi', sans-serif;
 	text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
@@ -318,7 +313,7 @@ p {
 .score_display_1 #score3_svg.draw,
 .score_display_1 #score4_svg.draw {	
 	height: 80%;
-	transition: height .25s ease-out 0s;
+	transition: height .25s linear 0s;
 }
 
 .score_display_2 #score1_svg,
@@ -336,7 +331,7 @@ p {
 .score_display_2 #score3_svg.draw,
 .score_display_2 #score4_svg.draw {	
 	height: 80%;
-	transition: height .25s ease-out 0s;
+	transition: height .25s linear 0s;
 }
 
 .score_display_1 #score5_svg {
@@ -349,11 +344,6 @@ p {
 	transform-origin: top;
 	top: 10%;
 	height: 0;	
-}
-
-.score_display_1 #score5_svg.draw {
-	height: 120%;
-	transition: height .25s ease-out 0s;
 }
 
 .score_display_2 #score5_svg {
@@ -369,26 +359,31 @@ p {
 
 .score_display_1 #score5_svg.draw {
 	height: 120%;
-	transition: height .25s ease-out 0s;
+	transition: height .25s linear 0s;
+}
+
+.score_display_2 #score5_svg.draw {
+	height: 120%;
+	transition: height .25s linear 0s;
 }
 
 .score_line1, .score_line2 {
-	stroke-width: 25px;
+	stroke-width: 30px;
 	stroke: white;
 }
 
 .score_line1.vert, .score_line1.diag, .score_line2.vert, .score_line2.diag {
-	d: path('M 0 0 l 0 0');
+	/*d: path('M 0 0 l 0 0');*/
 }
 
 .score_line1.vert.draw, .score_line2.vert.draw {
-	d: path('M 0 0 l 0 100');
-	transition: d .25s ease-out 0s;
+	/*d: path('M 0 0 l 0 100');*/
+	/*transition: d .25s ease-out 0s;*/
 }
 
 .score_line1.diag.draw, .score_line2.diag.draw {
-	d: path('M 10 0 l 0 200');
-	transition: d .25s ease-out 0s;	
+	/*d: path('M 10 0 l 0 200');*/
+	/*transition: d .25s ease-out 0s;	*/
 }
 
 .player_image {
@@ -436,7 +431,7 @@ p {
 	border-radius: 10px;
 	position: absolute;
 	height: 100%;
-	transition: height .25s ease-out 0s;
+	transition: height .25s linear 0s;
 }
 
 #line1_svg {
@@ -453,7 +448,7 @@ p {
 	visibility: hidden;
 	border-radius: 10px;
 	height: 100%;
-	transition: height .25s ease-out 0s;
+	transition: height .25s linear 0s;
 }
 
 
@@ -471,7 +466,7 @@ p {
 	visibility: hidden;
 	border-radius: 10px;
 	height: 100%;
-	transition: height .25s ease-out 0s;
+	transition: height .25s linear 0s;
 }
 
 #line3_svg {
@@ -488,9 +483,9 @@ p {
 #line3_svg.draw {
 	position: absolute;
 	visibility: hidden;
-	border-radius: 10px;
+	/*border-radius: 10px;*/
 	height: 100%;
-	transition: height .25s ease-out 0s;
+	transition: height .25s linear 0s;
 }
 
 #line4_svg {
@@ -509,7 +504,7 @@ p {
 	visibility: hidden;
 	border-radius: 10px;
 	height: 100%;
-	transition: height .25s ease-out 0s;
+	transition: height .25s linear 0s;
 }
 
 #line5_svg {
@@ -528,7 +523,7 @@ p {
 	visibility: hidden;
 	border-radius: 10px;
 	height: 100%;
-	transition: height .25s ease-out 0s;
+	transition: height .25s linear 0s;
 }
 
 #line6_svg {
@@ -547,7 +542,7 @@ p {
 	visibility: hidden;
 	border-radius: 10px;
 	height: 140%;
-	transition: height .25s ease-out 0s;
+	transition: height .25s linear 0s;
 }
 
 #line7_svg {
@@ -566,7 +561,7 @@ p {
 	visibility: hidden;
 	border-radius: 10px;
 	height: 140%;
-	transition: height .25s ease-out 0s;
+	transition: height .25s linear 0s;
 }
 
 .line {
@@ -574,18 +569,20 @@ p {
 	stroke: white;
 }
 
+
+/* Removed because added animate html tags to create effect */
 .line.vert, .line.horiz, .line.diag {
-	d: path('M 0 0 l 0 0');
+	/*d: path('M 0 0 l 0 0');*/
 }
 
 .line.vert.draw, .line.horiz.draw {
-	d: path('M 0 0 l 0 600');
-	transition: d .25s ease-out 0s;
+/*	d: path('M 0 0 l 0 600');
+	transition: d .25s ease-out 0s;*/
 }
 
 .line.diag.draw {
-	d: path('M 10 0 l 0 900');
-	transition: d .25s ease-out 0s;
+/*	d: path('M 10 0 l 0 900');
+	transition: d .25s ease-out 0s;*/
 }
 
 /*********************/
